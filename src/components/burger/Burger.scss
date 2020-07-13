@@ -1,0 +1,33 @@
+@import 'src/style/mixins';
+
+#Burger {
+	position: fixed;
+	top: 50px;
+	right: 60px;
+
+	//todo responsive
+}
+
+.Burger__bar {
+	@include gold-gradient();
+	display: block;
+	height: 4px;
+	margin-bottom: 5px;
+	position: relative;
+	z-index: 1;
+	transform-origin: 4px 0px;
+	transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+		opacity 0.55s ease;
+}
+
+.Burger__bar--1 {
+	width: 36px;
+}
+
+.Burger__bar--2 {
+	width: 40px;
+}
+
+.Burger__bar--3 {
+	width: 32px;
+}

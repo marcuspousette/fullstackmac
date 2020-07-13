@@ -1,0 +1,6 @@
+@import './vars.scss';
+
+@mixin gold-gradient {
+	background: rgb(237, 182, 88);
+	background: linear-gradient(130deg, $gold-light 0%, $gold-dark 100%);
+}
