@@ -1,3 +1,5 @@
+In the package.json file change the scripts as instructed below.
+
 localhost dev scripts: 
     "scripts": {
         "start": "react-scripts start",
