@@ -12,23 +12,40 @@
 	background-position: center; /* Center the image */
 	background-repeat: no-repeat; /* Do not repeat the image */
 	background-size: cover; /* Resize the background image to cover the entire container */
+	display: flex !important; //override semantic-ui
+	align-items: center;
+	flex-direction: column;
 }
 
 .Landing_page__header {
+	font-size: 1.4rem !important;
 	margin: 0px !important;
 	text-align: center;
 	color: $gold-light !important;
+	transform: translateY(5rem);
+
 	span {
 		writing-mode: vertical-rl;
 		text-orientation: upright;
 	}
+
+	@include for-size(phone) {
+		transform: translateY(2rem);
+	}
 }
 
 .Landing_page__header--second {
-	transform: translate(0px, 9.75rem);
+	transform: translate(0px, 6.65rem);
 }
 
 .Landing_page__logo {
 	margin: auto;
-	margin-top: 15rem;
+	margin-top: 25rem;
+	width: 430px;
+	max-width: 430px;
+
+	@include for-size(phone) {
+		margin-top: 18rem;
+		width: 100%;
+	}
 }

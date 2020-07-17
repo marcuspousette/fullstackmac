@@ -1,0 +1,11 @@
+@import 'src/style/vars';
+
+.cls-1 {
+	fill: url(#linear-gradient);
+}
+.cls-2 {
+	fill: url(#linear-gradient-2);
+}
+.cls-3 {
+	fill: $gold-light;
+}

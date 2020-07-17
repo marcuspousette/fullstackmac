@@ -1,5 +1,25 @@
 @import './vars.scss';
 
+@mixin for-size($size) {
+	@if $size == phone {
+		@media (max-width: $phone) {
+			@content;
+		}
+	} @else if $size == tablet {
+		@media (min-width: $tablet) {
+			@content;
+		}
+	} @else if $size == desktop-up {
+		@media (min-width: $desktop) {
+			@content;
+		}
+	} @else if $size == big-desktop-up {
+		@media (min-width: $big-d) {
+			@content;
+		}
+	}
+}
+
 @mixin gold-gradient {
 	background: rgb(237, 182, 88);
 	background: linear-gradient(130deg, $gold-light 0%, $gold-dark 100%);
