@@ -1,0 +1,91 @@
+@import 'src/style/vars';
+@import 'src/style/mixins';
+
+.Contact_me__contact:active {
+	background-color: #252525;
+	transform: scale(0.99);
+}
+
+.Contact_me__contact:focus {
+	outline: $gold-light !important;
+}
+
+.Contact_me__contact {
+	transition: background 0.2s;
+	display: inline-block;
+	position: absolute;
+	background: none;
+	border: none;
+	color: $gold-light;
+	font-size: 18px;
+	cursor: pointer;
+	background: $dark;
+	z-index: 1;
+
+	top: 30px;
+	left: 60px;
+
+	span {
+		display: block;
+		padding: 20px 50px;
+	}
+
+	span::before,
+	span::after {
+		content: '';
+		width: 2px;
+		height: 50%;
+		position: absolute;
+		transition: all 0.2s linear;
+		background: $gold-light;
+	}
+
+	@include for-size(phone) {
+		display: none;
+	}
+}
+
+.Contact_me__contact::before,
+.Contact_me__contact::after {
+	content: '';
+	width: 30%;
+	height: 2px;
+	position: absolute;
+	transition: all 0.2s linear;
+	background: $gold-light;
+}
+
+.Contact_me__contact:hover::before,
+.Contact_me__contact:hover::after {
+	width: 100%;
+}
+
+.Contact_me__contact:hover {
+	span::before {
+		height: 100%;
+	}
+	span::after {
+		height: 100%;
+	}
+}
+
+.Contact_me__contact::after {
+	right: 0;
+	bottom: 0;
+	transition-duration: 0.2s;
+}
+.Contact_me__contact span::after {
+	right: 0;
+	bottom: 0;
+	transition-duration: 0.2s;
+}
+.Contact_me__contact::before {
+	left: 0;
+	top: 0;
+	transition-duration: 0.2s;
+}
+.Contact_me__contact span::before {
+	left: 0;
+	top: 0;
+	transition-duration: 0.2s;
+}

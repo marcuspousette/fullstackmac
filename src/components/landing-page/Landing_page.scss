@@ -37,11 +37,15 @@
 
 	@include for-size(phone) {
 		transform: translateY(2rem);
+		font-size: 1.2rem !important;
 	}
 }
 
 .Landing_page__header--second {
 	transform: translate(0px, 6.65rem);
+	@include for-size(phone) {
+		transform: translate(0px, 6.1rem);
+	}
 }
 
 .Landing_page__logo {
@@ -55,4 +59,28 @@
 		margin-top: 18rem;
 		width: 100%;
 	}
+}
+
+.my-work {
+	height: 50vh;
+}
+
+.my-work__header {
+	border-top: 1px solid $gold-light;
+	height: 2px;
+	@include gold-gradient();
+	position: relative;
+	margin: 50px auto;
+}
+
+.my-work__header__text {
+	position: absolute;
+	color: $gold-light !important;
+	font-weight: 300 !important;
+	background-color: $dark;
+	width: 300px;
+	text-align: center;
+	display: block;
+	top: -12px;
+	left: calc(50% - 150px);
 }

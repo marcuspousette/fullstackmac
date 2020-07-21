@@ -38,7 +38,7 @@ function Logo(props) {
 						className="cls-2"
 						points="286.2 0 267.6 114.92 239.2 163.98 203.4 176.84 166 176.84 203.4 163.98 227.6 146.57 227.8 96.94 239 131.54 250.6 107.21 255.8 8.31 260.6 93.36 271.6 22.35 272 48.66 286.2 0"
 					/>
-					<g id="fullstackmac-text" style={props.text}>
+					<g id="fullstackmac-text" style={props.style}>
 						<path className="cls-3" d="M59.69,75.57H48.41V86.88h-2V62.71h15v1.72H48.41v9.42H59.69Z" />
 						<path
 							className="cls-3"

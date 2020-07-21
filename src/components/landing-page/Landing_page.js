@@ -1,14 +1,14 @@
 import React from 'react';
 import gsap from 'gsap';
-import { Header, Container, Image, FormButton } from 'semantic-ui-react';
+import { Header, Container, Button } from 'semantic-ui-react';
 import Burger from '../burger/Burger.js';
 import './Landing_page.scss';
 import Logo from '../logo/Logo.js';
+import ContactMe from '../contact-me-btn/ContactMeBtn';
+import ScrollIndicator from '../scroll-indicator/ScrollIndicator';
 
 const logStyle = {
-	text: {
-		opacity: 0
-	}
+	opacity: 0
 };
 
 class Landing_page extends React.Component {
@@ -23,6 +23,7 @@ class Landing_page extends React.Component {
 	render() {
 		return (
 			<div id="Landing_page">
+				<ContactMe />
 				<Burger />
 				<Container className="Landing_page__background">
 					<div className="Landing_page__background-image"></div>
@@ -31,6 +32,12 @@ class Landing_page extends React.Component {
 						<span className="Landing_page__header--second">POUSETTE</span>
 					</Header>
 					<Logo classes="Landing_page__logo" style={logStyle} />
+				</Container>
+				<ScrollIndicator />
+				<Container className="my-work">
+					<div class="my-work__header">
+						<h3 className="my-work__header__text">Some of my latest work</h3>
+					</div>
 				</Container>
 			</div>
 		);
