@@ -35,16 +35,10 @@
 		text-orientation: upright;
 	}
 
-<<<<<<< HEAD
-	// @include for-size(phone) {
-	// 	transform: translateY(2rem);
-	// }
-=======
 	@include for-size(phone) {
 		transform: translateY(2rem);
 		font-size: 1.2rem !important;
 	}
->>>>>>> dev
 }
 
 .Landing_page__header--second {
