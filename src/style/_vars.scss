@@ -7,6 +7,14 @@ $purple-light: #a06473;
 $pink: #dd8673;
 $gold-light: #edb658;
 $gold-dark: #bf983d;
+$lighter-text: rgba(
+	$color: #fff,
+	$alpha: 0.87
+);
+$light-text: rgba(
+	$color: #fff,
+	$alpha: 0.6
+);
 
 // Breakpoints from semantic-ui
 $phone: 767px;

@@ -3,8 +3,8 @@ import './ScrollIndicator.scss';
 
 function ScrollIndicator() {
 	return (
-		<div class="scroll-indicator">
-			<div class="dots"></div>
+		<div className="scroll-indicator">
+			<div className="dots"></div>
 		</div>
 	);
 }

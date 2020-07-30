@@ -5,6 +5,8 @@
 	background-color: $dark;
 	min-height: 100vh;
 	position: relative;
+	// Animation for menu
+	// transform: translate3d(60%,0,0) scale3d(.85,.85,1);
 }
 
 .Landing_page__background {
@@ -61,10 +63,6 @@
 	}
 }
 
-.my-work {
-	height: 50vh;
-}
-
 .my-work__header {
 	border-top: 1px solid $gold-light;
 	height: 2px;
@@ -83,4 +81,25 @@
 	display: block;
 	top: -12px;
 	left: calc(50% - 150px);
+}
+
+.curtain {
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	background-color: $dark;
+	z-index: 5;
+	pointer-events: none;
+}
+
+.curtain-left {
+	left: 0px;
+	background-color: $gold-light;
+}
+
+.curtain-right {
+	left: 50%;
+	width: 50vw;
+	transform: translateX(50vw);
+	background-color: $dark-layer;
 }
