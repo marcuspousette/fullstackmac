@@ -25,6 +25,11 @@
 	background: linear-gradient(130deg, $gold-light 0%, $gold-dark 100%);
 }
 
+@mixin white-transparent-gradient {
+	background: rgb(255, 255, 255);
+	background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.2) 100%);
+}
+
 @mixin layer-shadow {
 	box-shadow: 0 5px 15px 0px rgba($color: #000000, $alpha: 0.2);
 }
