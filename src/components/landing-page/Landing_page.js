@@ -8,6 +8,8 @@ import ContactMe from '../contact-me-btn/ContactMeBtn';
 import ScrollIndicator from '../scroll-indicator/ScrollIndicator';
 import ProjectCard from '../project-card/ProjectCard';
 import { myWork } from '../../static-data/myWork.js';
+import Footer from '../footer/Footer';
+import WindowService from '../../api/service/WindowService';
 
 class Landing_page extends React.Component {
 	constructor(props) {
@@ -42,7 +44,25 @@ class Landing_page extends React.Component {
 		this.desktopExpandAnimation.to('.curtain-right', right, '<');
 	};
 
-	toggleCurtains = (expanded, target) => {
+	createMobileExpandAnimation = () => {
+		const duration = 0.3;
+		const ease = '"power2.in",';
+		const left = {
+			width: '50vw',
+			duration: duration,
+			ease: ease
+		};
+		const right = {
+			x: '0',
+			duration: duration,
+			ease: ease
+		};
+		this.mobileExpandAnimation = gsap.timeline({ paused: true });
+		this.mobileExpandAnimation.to('.curtain-left', left);
+		this.mobileExpandAnimation.to('.curtain-right', right, '<');
+	};
+
+	toggleDesktopCurtains = (expanded, target) => {
 		if (expanded) {
 			this.desktopExpandAnimation.reverse();
 			setTimeout(() => {
@@ -54,26 +74,29 @@ class Landing_page extends React.Component {
 		}
 	};
 
+	toggleMobileCurtains = (expanded, target) => {
+		if (expanded) {
+			this.mobileExpandAnimation.reverse();
+		} else {
+			this.mobileExpandAnimation.play();
+		}
+	};
+
 	toggleExpanded = () => {
 		const { expanded } = this.state;
 		this.setState({ expanded: !expanded });
 	};
 
-	showBackground = (target) => {};
-
-	hideBackground = (target) => {};
-
 	onExpandToggle = (target) => {
-		console.log(target);
 		this.toggleExpanded();
+		const isBigDesktop = WindowService.isBigDesktop();
 		const { expanded } = this.state;
-		expanded ? this.hideBackground(target) : this.showBackground(target);
-		this.toggleCurtains(expanded, target);
+		isBigDesktop ? this.toggleDesktopCurtains(expanded, target) : this.toggleMobileCurtains(expanded, target);
 	};
 
-	MyWordCards = () => {
+	myWordCards = () => {
 		const cards = myWork.map((e, i) => (
-			<Grid.Column key={i}>
+			<Grid.Column key={i} className="my-work-grid__column">
 				<ProjectCard
 					header={e.header}
 					subHeader={e.subHeader}
@@ -86,7 +109,7 @@ class Landing_page extends React.Component {
 			</Grid.Column>
 		));
 		return (
-			<Grid stackable columns={3}>
+			<Grid stackable columns={3} className="my-work-grid">
 				{cards}
 			</Grid>
 		);
@@ -102,6 +125,7 @@ class Landing_page extends React.Component {
 
 	componentDidMount() {
 		this.createDesktopExpandAnimation();
+		this.createMobileExpandAnimation();
 		this.animateLogo();
 	}
 
@@ -112,7 +136,7 @@ class Landing_page extends React.Component {
 				<div ref={this.rightCurtain} className="curtain curtain-right"></div>
 
 				<ContactMe />
-				<Burger />
+				{/* <Burger /> */}
 				<Container className="Landing_page__background">
 					<div className="Landing_page__background-image"></div>
 					<Header as="h1" className="Landing_page__header">
@@ -127,10 +151,9 @@ class Landing_page extends React.Component {
 						<h3 className="my-work__header__text">Some of my latest work</h3>
 					</div>
 
-					{this.MyWordCards()}
-
-					<div style={{ height: '50vh' }}></div>
+					{this.myWordCards()}
 				</Container>
+				<Footer />
 			</div>
 		);
 	}
