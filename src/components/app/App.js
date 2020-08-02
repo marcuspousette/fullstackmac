@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.scss';
-import Landing_page from '../landing-page/Landing_page.js';
+import LandingPage from '../landing-page/LandingPage.js';
 
 function App() {
 	return (
 		<div id="App">
-			<Landing_page />
+			<LandingPage />
 		</div>
 	);
 }

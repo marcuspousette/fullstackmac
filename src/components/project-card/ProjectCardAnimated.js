@@ -61,7 +61,7 @@ class ProjectCardAnimated extends React.Component {
 						</Button.Content>
 					</Button>
 				</div>
-				<img className="Project_card_animated__image " src={this.props.imageURL}></img>
+				<img className="Project_card_animated__image " src={this.props.imageURL} alt={this.props.header}></img>
 			</div>
 		);
 	}

@@ -88,13 +88,10 @@
 	position: absolute;
 	height: 275px;
 	width: 275px;
+	max-width: 85%;
 	top: -40%;
 	background-position: center; /* Center the image */
 	background-repeat: no-repeat; /* Do not repeat the image */
 	background-size: cover; /* Resize the background image to cover the entire container */
 	box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
 }
-
-// .Project_card__fade-gradient {
-// 	background: linear-gradient(0deg, rgba(45, 45, 45, 1) 85%, rgb(45 45 45 / 0%) 100%);
-// }
