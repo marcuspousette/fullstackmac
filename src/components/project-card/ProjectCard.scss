@@ -27,11 +27,24 @@
 .Project_card__background__btn-container {
 	display: flex;
 	width: fit-content;
+	height: fit-content;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 15px; //for the box shadow effect
 	margin-left: auto;
 	margin-right: auto;
+
+	@include desktop-down {
+		position: absolute;
+		right: 20px;
+		bottom: 20px;
+		margin-bottom: 0px;
+
+		.See_more_btn {
+			width: 40px;
+			height: 40px;
+		}
+	}
 }
 
 .Project_card__background__header {
@@ -39,6 +52,7 @@
 	padding-bottom: 20px !important;
 	color: $light-text !important;
 	margin-bottom: 0px !important;
+	width: fit-content !important;
 
 	div {
 		color: $light-text !important;
@@ -50,6 +64,8 @@
 	width: 50%;
 	height: 200px;
 	color: $light-text !important;
+	overflow-y: auto;
+	font-size: 16px !important;
 }
 
 .Project_card__background__link {
@@ -71,10 +87,14 @@
 .Project_card__image {
 	position: absolute;
 	height: 275px;
-	width: 90%;
+	width: 275px;
 	top: -40%;
 	background-position: center; /* Center the image */
 	background-repeat: no-repeat; /* Do not repeat the image */
 	background-size: cover; /* Resize the background image to cover the entire container */
 	box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
 }
+
+// .Project_card__fade-gradient {
+// 	background: linear-gradient(0deg, rgba(45, 45, 45, 1) 85%, rgb(45 45 45 / 0%) 100%);
+// }

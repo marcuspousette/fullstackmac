@@ -1,0 +1,85 @@
+@import 'src/style/vars';
+@import 'src/style/mixins';
+
+#footer {
+	height: 250px;
+	background-color: $dark-layer;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	position: relative;
+}
+
+.footer-header {
+	color: $gold-light !important;
+}
+
+.footer-go-up {
+	position: absolute !important;
+	top: 0px !important;
+	transform: translateY(-35%) !important;
+	background-color: $dark-layer !important;
+	color: $gold-light !important;
+	box-shadow: none !important;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+
+.footer-go-up:hover {
+	transform: translateY(-35%) scale(1.1) !important;
+	transition: all 0.3s;
+}
+
+.social-icon-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		cursor: pointer;
+		float: left;
+		padding-right: 10px;
+
+		i {
+			box-shadow: none !important;
+			transition: all 0.3s;
+		}
+
+		i:hover {
+			transform: scale(1.2);
+		}
+	}
+}
+
+.facebook-social-icon {
+	color: white !important;
+	background: #00c6ff; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #0072ff, #00c6ff); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#0072ff,
+		#00c6ff
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.github-social-icon {
+	color: white !important;
+	background-color: #333333 !important;
+}
+
+.linkedin-social-icon {
+	color: white !important;
+	background-color: #0087be !important;
+}
+
+.instagram-social-icon {
+	color: white !important;
+	background: #833ab4; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#fcb045,
+		#fd1d1d,
+		#833ab4
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
