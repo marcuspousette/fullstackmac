@@ -34,6 +34,8 @@
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	width: 100%;
+	height: 45px;
 
 	li {
 		cursor: pointer;
@@ -82,4 +84,11 @@
 		#fd1d1d,
 		#833ab4
 	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.footer-email-btn {
+	margin-top: 20px;
+	button {
+		background: linear-gradient(130deg, $gold-light 0%, $gold-dark 100%) !important;
+	}
 }

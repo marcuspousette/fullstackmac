@@ -1,9 +1,8 @@
 import React from 'react';
 import './ContactMeBtn.scss';
 
-const mailAdress = 'mailto:marcus.pousette@mmrsolutions.se';
-
 function mailMe() {
+	const mailAdress = 'mailto:marcus.pousette@mmrsolutions.se';
 	window.location.href = mailAdress;
 }
 

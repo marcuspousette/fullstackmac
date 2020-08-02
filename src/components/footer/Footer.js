@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Header, Container } from 'semantic-ui-react';
+import { Icon, Header, Container, Button } from 'semantic-ui-react';
 import './Footer.scss';
 
 class Footer extends React.Component {
@@ -25,6 +25,20 @@ class Footer extends React.Component {
 			link: 'https://github.com/marcuspousette'
 		}
 	];
+
+	mailMe() {
+		const mailAdress = 'mailto:marcus.pousette@mmrsolutions.se';
+		window.location.href = mailAdress;
+	}
+
+	buttonExampleLabeledIcon = () => (
+		<div className="footer-email-btn">
+			<Button icon labelPosition="left" onClick={this.mailMe}>
+				<Icon name="mail" />
+				Get in touch
+			</Button>
+		</div>
+	);
 
 	toTop = () => {
 		window.scroll({
@@ -62,6 +76,7 @@ class Footer extends React.Component {
 						Fullstackmac by Marcus Pousette
 					</Header>
 					{this.socialIcons()}
+					{this.buttonExampleLabeledIcon()}
 				</Container>
 			</footer>
 		);

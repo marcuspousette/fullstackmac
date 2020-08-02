@@ -5,6 +5,7 @@
 	top: 50px;
 	right: 60px;
 	position: absolute;
+	z-index: 100;
 
 	@include for-size(phone) {
 		top: 30px;

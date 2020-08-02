@@ -2,7 +2,7 @@ import React from 'react';
 import gsap from 'gsap';
 import { Header, Container, Grid } from 'semantic-ui-react';
 import Burger from '../burger/Burger.js';
-import './Landing_page.scss';
+import './LandingPage.scss';
 import Logo from '../logo/Logo.js';
 import ContactMe from '../contact-me-btn/ContactMeBtn';
 import ScrollIndicator from '../scroll-indicator/ScrollIndicator';
@@ -21,7 +21,7 @@ const currentCardBlueprint = {
 	description: null
 };
 
-class Landing_page extends React.Component {
+class LandingPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -31,9 +31,6 @@ class Landing_page extends React.Component {
 		this.logStyle = {
 			opacity: 0
 		};
-
-		this.leftCurtain = React.createRef();
-		this.rightCurtain = React.createRef();
 		this.zIndexDelay = 1000;
 	}
 
@@ -156,25 +153,42 @@ class Landing_page extends React.Component {
 		);
 	};
 
-	animateLogo = () => {
-		const logoAnimation = gsap.timeline();
-		logoAnimation
-			.fromTo('#right-horn', { x: -80 }, { x: 0, duration: 0.5, delay: 2 })
-			.fromTo('#left-horn', { x: 80 }, { x: 0, duration: 0.5 }, '<')
-			.to('#fullstackmac-text', { opacity: 1, duration: 0.5 });
+	animateLandingScreen = () => {
+		const tl = gsap.timeline({ delay: 1 });
+		const ease = 'expo.out';
+		tl.fromTo('.Landing_page__background-image', { opacity: 0 }, { opacity: 1 }, '<')
+			.fromTo('#right-horn', { x: -80 }, { x: 0, duration: 0.5, ease: ease })
+			.fromTo('#left-horn', { x: 80 }, { x: 0, duration: 0.5, ease: ease }, '<')
+
+			.to('#fullstackmac-text', { opacity: 1, duration: 0.5, ease: ease })
+			.fromTo('.Contact_me__contact', { x: -100, opacity: 0, duration: 1 }, { x: 0, opacity: 1, ease: ease })
+			.fromTo(
+				'.Landing_page__header--first',
+				{ y: -100, opacity: 0, duration: 1 },
+				{ y: 0, opacity: 1, ease: ease },
+				'<'
+			)
+			.fromTo(
+				'.Landing_page__header--second',
+				{ y: 200, opacity: 0, duration: 1 },
+				{ y: '6.65rem', opacity: 1, ease: ease },
+				'<'
+			)
+			.fromTo('#Burger', { x: 100, opacity: 0, duration: 1 }, { x: 0, opacity: 0, ease: ease }, '<')
+			.fromTo('.scroll-indicator', { opacity: 0 }, { opacity: 1, ease: ease });
 	};
 
 	componentDidMount() {
 		this.createDesktopExpandAnimation();
 		this.createMobileExpandAnimation();
-		this.animateLogo();
+		this.animateLandingScreen();
 	}
 
 	render() {
 		return (
 			<div id="Landing_page">
-				<div ref={this.leftCurtain} className="curtain curtain-left"></div>
-				<div ref={this.rightCurtain} className="curtain curtain-right"></div>
+				<div className="curtain curtain-left"></div>
+				<div className="curtain curtain-right"></div>
 				<ProjectCardAnimated
 					header={this.state.currentCard.header}
 					subHeader={this.state.currentCard.subHeader}
@@ -185,7 +199,7 @@ class Landing_page extends React.Component {
 				/>
 
 				<ContactMe />
-				{/* <Burger /> */}
+				<Burger />
 				<Container className="Landing_page__background">
 					<div className="Landing_page__background-image"></div>
 					<Header as="h1" className="Landing_page__header">
@@ -208,4 +222,4 @@ class Landing_page extends React.Component {
 	}
 }
 
-export default Landing_page;
+export default LandingPage;
