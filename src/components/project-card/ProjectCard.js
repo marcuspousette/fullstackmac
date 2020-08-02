@@ -30,7 +30,7 @@ class ProjectCard extends React.Component {
 
 		const isBigDesktop = WindowService.isBigDesktop();
 		isBigDesktop ? this.expandCardDesktop(expanded) : this.expandCardMobile(expanded);
-		this.props.onButtonClick(this.ref.current);
+		this.props.onButtonClick(this);
 		if (!expanded) {
 			this.throttleAnimationSpam();
 		}
@@ -131,49 +131,79 @@ class ProjectCard extends React.Component {
 			left: 0,
 			height: innerHeight,
 			width: innerWidth,
-			duration: duration,
+			duration: 0,
 			zIndex: 200,
 			marginTop: 0,
 			scale: 1,
 			ease: ease
 		};
-
-		const backgroundExpandedStyle = {
-			duration: duration,
-			height: halfHeight,
+		const backgroundFrom = {
+			duration: 0,
+			height: innerHeight,
 			width: innerWidth,
-			top: '50%',
+			top: 0,
 			overflowY: 'auto',
 			overscrollBehaviorY: 'none',
+			zIndex: 300,
+			background: 'transparent',
 			ease: ease
 		};
-
-		const imageExpandedStyle = {
-			duration: duration,
+		const imageFrom = {
+			duration: 0,
 			width: innerWidth,
 			height: halfHeight,
 			scale: 1,
 			ease: ease,
+			opacity: 0,
+			scale: 0,
 			top: 0
 		};
-
-		const btnStyle = {
-			duration: duration,
-			top: 20,
+		const buttonFrom = { duration: 0, top: '40%', ease: ease, rotate: 90, scale: 0 };
+		const headerFrom = {
+			duration: 0,
+			position: 'absolute',
+			top: '40%',
+			marginTop: 0,
 			ease: ease,
-			rotate: 90
+			y: 0,
+			opacity: 0
+		};
+		const textFrom = {
+			duration: 0,
+			scale: 0,
+			width: '80%',
+			position: 'absolute',
+			top: '50%',
+			overflowY: 'unset',
+			opacity: 0
+		};
+		const linkFrom = {
+			duration: 0,
+			scale: 0,
+			opacity: 1,
+			bottom: 40,
+			position: 'absolute',
+			xPercent: -50,
+			left: centerWidth
 		};
 
-		const headerStyle = {
+		const backgroundTo = {
 			duration: duration,
-			ease: ease,
-			y: -370
+			background: 'linear-gradient(0deg, rgba(45, 45, 45, 1) 50%, rgb(45 45 45 / 0%) 100%)'
 		};
+		const buttonTo = { scale: 1, duration: duration };
+		const imageTo = { duration: duration, scale: 1, opacity: 1 };
 
-		const textStyle = {
-			duration: 0.1,
+		const textTo = {
+			duration: 0,
 			scale: 1,
 			opacity: 1
+		};
+		const headerTo = { opacity: 1, duration: duration };
+
+		const linkTo = {
+			duration: 0.1,
+			scale: 1
 		};
 
 		const btn = childNodes[0].querySelector('.Project_card__background__btn-container');
@@ -183,12 +213,19 @@ class ProjectCard extends React.Component {
 
 		this.mobileExpandAnimation = gsap.timeline({ paused: true, delay: delay });
 		this.mobileExpandAnimation.to(current, cardTo);
-		this.mobileExpandAnimation.to(childNodes[0], backgroundExpandedStyle, '<');
-		this.mobileExpandAnimation.to(btn, btnStyle, '<');
-		this.mobileExpandAnimation.to(header, headerStyle, '<');
-		this.mobileExpandAnimation.to(childNodes[1], imageExpandedStyle, '<');
-		this.mobileExpandAnimation.to(text, textStyle);
-		this.mobileExpandAnimation.to(link, textStyle);
+		this.mobileExpandAnimation.to(childNodes[1], imageFrom, '<');
+		this.mobileExpandAnimation.to(childNodes[0], backgroundFrom, '<');
+		this.mobileExpandAnimation.to(btn, buttonFrom, '<');
+		this.mobileExpandAnimation.to(header, headerFrom, '<');
+		this.mobileExpandAnimation.to(text, textFrom, '<');
+		this.mobileExpandAnimation.to(link, linkFrom, '<');
+
+		this.mobileExpandAnimation.to(childNodes[0], backgroundTo);
+		this.mobileExpandAnimation.to(btn, buttonTo, '<');
+		this.mobileExpandAnimation.to(header, headerTo, '<');
+		this.mobileExpandAnimation.to(childNodes[1], imageTo, '<');
+		this.mobileExpandAnimation.to(text, textTo);
+		this.mobileExpandAnimation.to(link, linkTo);
 	};
 
 	expandCardDesktop(expand) {
@@ -196,7 +233,7 @@ class ProjectCard extends React.Component {
 	}
 
 	expandCardMobile(expand) {
-		expand ? this.mobileExpandAnimation.play() : this.mobileExpandAnimation.reverse();
+		// expand ? this.mobileExpandAnimation.play() : this.mobileExpandAnimation.reverse();
 	}
 
 	toggleImage = (slideUp) => {
@@ -208,14 +245,12 @@ class ProjectCard extends React.Component {
 	};
 
 	followProjectLink = () => {
-		const link = 'mailto:marcus.pousette@mmrsolutions.se';
-
 		window.open(this.props.link, '_blank');
 	};
 
 	componentDidMount() {
 		this.createDesktopAnimation();
-		this.createMobileAnimation();
+		// this.createMobileAnimation();
 	}
 
 	render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Header } from 'semantic-ui-react';
+import { Icon, Header, Container } from 'semantic-ui-react';
 import './Footer.scss';
 
 class Footer extends React.Component {
@@ -41,7 +41,7 @@ class Footer extends React.Component {
 					<Icon
 						circular
 						className={e.className}
-						size="big"
+						size="large"
 						name={e.name}
 						onClick={() => {
 							window.open(e.link, '_blank');
@@ -56,11 +56,13 @@ class Footer extends React.Component {
 	render() {
 		return (
 			<footer id="footer">
-				<Icon circular size="huge" name="angle up" className="footer-go-up" onClick={this.toTop} />
-				<Header className="footer-header" as="h3">
-					Fullstackmac by Marcus Pousette
-				</Header>
-				{this.socialIcons()}
+				<Icon circular size="big" name="angle up" className="footer-go-up" onClick={this.toTop} />
+				<Container>
+					<Header className="footer-header" as="h3">
+						Fullstackmac by Marcus Pousette
+					</Header>
+					{this.socialIcons()}
+				</Container>
 			</footer>
 		);
 	}

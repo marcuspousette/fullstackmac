@@ -1,0 +1,82 @@
+@import 'src/style/vars';
+@import 'src/style/mixins';
+
+$side-margin: 25px;
+
+.Project_card_animated {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	z-index: 300;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.Project_card_animated__background {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	z-index: 302;
+	overflow-y: auto;
+	overscroll-behavior-y: none;
+	background: linear-gradient(0deg, #2d2d2d 50%, #2d2d2d00 100%);
+	transform: translateY(100%);
+}
+
+.Project_card_animated__background__text {
+	position: fixed;
+	top: 55%;
+	width: calc(100% - #{$side-margin * 2});
+	left: $side-margin;
+	color: $light-text;
+}
+
+.Project_card_animated__background__btn-container {
+	position: fixed;
+	top: 45%;
+	right: $side-margin;
+
+	@include desktop-down {
+		position: absolute;
+		right: $side-margin;
+		margin-bottom: 0px;
+
+		.See_more_btn {
+			width: 40px;
+			height: 40px;
+		}
+	}
+}
+
+.Project_card_animated__background__header {
+	position: fixed;
+	top: 45%;
+	left: $side-margin;
+	color: white !important;
+	margin: 0px !important;
+
+	div {
+		color: $light-text !important;
+	}
+}
+
+.Project_card_animated__background__link {
+	position: fixed !important;
+	bottom: 46px;
+	width: fit-content;
+	left: calc(50% - 64px);
+}
+
+.Project_card_animated__image {
+	position: fixed;
+	height: 50vh;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	transform: translateY(-100%);
+	z-index: 301;
+}
