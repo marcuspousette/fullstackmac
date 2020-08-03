@@ -25,6 +25,8 @@ $side-margin: 25px;
 	overscroll-behavior-y: none;
 	background: linear-gradient(0deg, #2d2d2d 50%, #2d2d2d00 100%);
 	transform: translateY(100%);
+
+	padding-bottom: env(safe-area-inset-bottom);
 }
 
 .Project_card_animated__background__text {
@@ -66,7 +68,7 @@ $side-margin: 25px;
 
 .Project_card_animated__background__link {
 	position: fixed !important;
-	bottom: 46px;
+	bottom: 56px;
 	width: 120px;
 	left: calc(50% - 60px);
 }
