@@ -94,4 +94,8 @@
 	background-repeat: no-repeat; /* Do not repeat the image */
 	background-size: cover; /* Resize the background image to cover the entire container */
 	box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
+
+	@include for-size(big-desktop-up) {
+		max-width: none !important;
+	}
 }
