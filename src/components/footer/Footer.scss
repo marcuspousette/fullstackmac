@@ -8,6 +8,8 @@
 	justify-content: space-evenly;
 	align-items: center;
 	position: relative;
+	padding: env(safe-area-inset-top, 40px) env(safe-area-inset-right, 20px) env(safe-area-inset-bottom, 50px)
+		env(safe-area-inset-left, 20px) !important;
 }
 
 .footer-header {
